@@ -1,0 +1,8 @@
+SDL_CreateWindow(
+	"A Small Cute Window",			// Fönsternamn
+	SDL_WINDOWPOS_UNDEFINED,		// Initiel x position	
+	SDL_WINDOWPOS_UNDEFINED,		// Initiel y position
+	640,							// Bredd, i pixlar
+	480,							// Höjd, i pixlar
+	SDL_WINDOW_OPENGL 				// Flaggningar - se appendix a		
+);

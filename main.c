@@ -7,13 +7,15 @@ int main(int argc, char* argv[]) {
 
 	SDL_Init(SDL_INIT_VIDEO);			// Initierar SDL2
 
+	Uint32 flags = SDL_WINDOW_OPENGL | SDL_WINDOW_MAXIMIZED;
+
 	testWindow = SDL_CreateWindow(
-		"A Small Cute Window",		// Fönsternamn
+		"A Small Cute Window",			// Fönsternamn
 		SDL_WINDOWPOS_UNDEFINED,		// Initiel x position	
 		SDL_WINDOWPOS_UNDEFINED,		// Initiel y position
 		640,							// Bredd, i pixlar
 		480,							// Höjd, i pixlar
-		SDL_WINDOW_OPENGL				// Flaggningar - se appendix a
+		SDL_WINDOW_OPENGL 				// Flaggningar - se appendix a		
 	);
 
 	// Kollar om fönstret kunde skapas
