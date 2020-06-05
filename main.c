@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
 		SDL_WINDOWPOS_UNDEFINED,		// Initiel y position
 		640,							// Bredd, i pixlar
 		480,							// Höjd, i pixlar
-		SDL_WINDOW_OPENGL 				// Flaggningar - se appendix a		
+		SDL_WINDOW_OPENGL 				// Flaggningar - se Bilaga A	
 	);
 
 	// Kollar om fönstret kunde skapas

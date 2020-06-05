@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="appendix.txt">
+    <Text Include="Bilaga A.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
