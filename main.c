@@ -25,6 +25,9 @@ int main(int argc, char* argv[]) {
 	// Ändrar renderingsfärgen till RÖD (Bakgrunden kommer renderas i denna färg)
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 
+	// Rensar renderingsmålet med vald renderingsfärg
+	SDL_RenderClear(renderer);
+
 	// Kollar om fönstret kunde skapas
 	if (testWindow == NULL) {
 		// Ifall det inte gick att skapa fönstret
@@ -33,10 +36,12 @@ int main(int argc, char* argv[]) {
 	}
 
 	// Fönstret är nu öppet: kan länga in programloop här
-	SDL_RenderClear(renderer);
+
+	// Uppdaterar skärmen med ? 
 	SDL_RenderPresent(renderer);
 
-	SDL_Delay(3000);	//Pausa körningen i 3000 millisekunder, t.ex.
+	// Pausa körningen i 3000 millisekunder, t.ex.
+	SDL_Delay(3000);	
 
 	// Stängar och "förstör" fönstret
 	SDL_DestroyWindow(testWindow);

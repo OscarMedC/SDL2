@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Bilaga A.txt" />
+    <Text Include="Bilaga B.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

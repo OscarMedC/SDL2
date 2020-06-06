@@ -23,5 +23,8 @@
     <Text Include="Bilaga A.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Bilaga B.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

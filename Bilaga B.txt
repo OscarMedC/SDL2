@@ -1,0 +1,29 @@
+SDL_Renderer();
+-------------------------------------------------------------------------------------------------------------------------------------
+SDL_Renderer* renderer = NULL;
+
+renderer = SDL_CreateRenderer(SDL_Window* window, int index, Uint32 flags);
+
+window = Fönstret där renderingen visas
+index = Indexet för den renderingsdrivrutin som ska initieras, eller -1 för att initisera den första som stödjer valda flaggor
+flags = 0, en eller flera OR'D tillsammans.
+
+FLAGS
+------
+SDL_RENDER_SOFTWARE - renderaren använder mjukvara
+SDL_RENDER_ACCELERATED - renderaren använder hårdvaruacceleration
+SDL_RENDER_PRESENTVSYNC - present är synkroniserad med uppdateringsfrekvensen
+SDL_RENDERER_TARGETTEXTURE - renderaren stödjer rendering till texturer
+-------------------------------------------------------------------------------------------------------------------------------------
+
+SDL_SetRenderDrawColor(); Används för att bestämma den färg som används för ritningsoperationer (Rect, Line and Clear)
+-------------------------------------------------------------------------------------------------------------------------------------
+int SDL_SetRenderDrawColor(SDL_Renderer* renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+
+renderer - renderingskontexten
+r - det röda värdet som skall ritas på renderingsmålet
+g - det gröna värdet som skall ritas på renderingsmålet
+b - det blåa värdet som skall ritas på renderingsmålet 
+a - alphavärdet som skall ritas på renderingsmålet
+------
+returnera 0 på lyckad körning och negativt tal på misslyckad, använd SDL_GetError för mer information

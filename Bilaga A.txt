@@ -1,6 +1,8 @@
 SDL_CreateWindow();
 ------------------------------------------------------------------------------------------------------------
-SDL_CreateWindow(
+SDL_Window* testWindow = NULL;	
+
+testWindow = SDL_CreateWindow(
 	"A Small Cute Window",			// Fönsternamn
 	SDL_WINDOWPOS_UNDEFINED,		// Initiel x position	
 	SDL_WINDOWPOS_UNDEFINED,		// Initiel y position
