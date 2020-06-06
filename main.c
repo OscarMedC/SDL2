@@ -18,6 +18,13 @@ int main(int argc, char* argv[]) {
 		SDL_WINDOW_OPENGL 				// Flaggningar - se Bilaga A	
 	);
 
+	// Startar rendering
+	SDL_Renderer* renderer = NULL;
+	renderer = SDL_CreateRenderer(testWindow, -1, SDL_RENDERER_ACCELERATED);
+
+	// Ändrar renderingsfärgen till RÖD (Bakgrunden kommer renderas i denna färg)
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
 	// Kollar om fönstret kunde skapas
 	if (testWindow == NULL) {
 		// Ifall det inte gick att skapa fönstret
@@ -26,6 +33,8 @@ int main(int argc, char* argv[]) {
 	}
 
 	// Fönstret är nu öppet: kan länga in programloop här
+	SDL_RenderClear(renderer);
+	SDL_RenderPresent(renderer);
 
 	SDL_Delay(3000);	//Pausa körningen i 3000 millisekunder, t.ex.
 
@@ -35,9 +44,5 @@ int main(int argc, char* argv[]) {
 	// Städar upp
 	SDL_Quit();
 	return 0;
-	
 
-
-
-	return 0;
 }
