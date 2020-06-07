@@ -27,3 +27,20 @@ b - det blåa värdet som skall ritas på renderingsmålet
 a - alphavärdet som skall ritas på renderingsmålet
 ------
 returnera 0 på lyckad körning och negativt tal på misslyckad, använd SDL_GetError för mer information
+-------------------------------------------------------------------------------------------------------------------------------------
+
+SDL_RenderClear(); Används för att rita rensa skärmen med den valda färgen
+-------------------------------------------------------------------------------------------------------------------------------------
+int SDL_RenderCLear(SDL_Renderer* renderer);
+
+renderer - renderingskontexten
+returnera 0 på lyckad körning och negativt tal på misslyckad, använd SDL_GetError för mer information
+-------------------------------------------------------------------------------------------------------------------------------------
+
+SDL_RenderPresent();
+-------------------------------------------------------------------------------------------------------------------------------------
+void SDL_RenderPresent(SDL_Renderer* renderer);
+
+renderer - renderingskontexten
+-------------------------------------------------------------------------------------------------------------------------------------
+
