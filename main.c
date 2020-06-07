@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 
 	int active = 0;
 
-		// Programloop
+	// Programloop
 
 	while (active <= 5) {
 		// Ritar skärmen röd
