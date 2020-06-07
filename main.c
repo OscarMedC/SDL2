@@ -22,12 +22,6 @@ int main(int argc, char* argv[]) {
 	SDL_Renderer* renderer = NULL;
 	renderer = SDL_CreateRenderer(testWindow, -1, SDL_RENDERER_ACCELERATED);
 
-	// Ändrar renderingsfärgen till RÖD (Bakgrunden kommer renderas i denna färg)
-	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-
-	// Rensar renderingsmålet med vald renderingsfärg
-	SDL_RenderClear(renderer);
-
 	// Kollar om fönstret kunde skapas
 	if (testWindow == NULL) {
 		// Ifall det inte gick att skapa fönstret
@@ -35,32 +29,41 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	// Fönstret är nu öppet: kan länga in programloop här
+	int active = 0;
 
-	/* Hittils så va allt ritat "Behind the scenes".
-	   Detta kommer vissa det nya röda inhållet i fönstret. */
-	SDL_RenderPresent(renderer);
+		// Programloop
 
-	SDL_Delay(5000);
+	while (active <= 5) {
+		// Ritar skärmen röd
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 
-	//Ritar skärmen grön
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+		SDL_RenderClear(renderer);
 
-	SDL_RenderClear(renderer);
+		SDL_RenderPresent(renderer);
 
-	SDL_RenderPresent(renderer);
+		SDL_Delay(2000);
 
-	SDL_Delay(5000);
+		// Ritar skärmen grön
+		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 
-	//Ritar skärmen blå
-	SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+		SDL_RenderClear(renderer);
 
-	SDL_RenderClear(renderer);
+		SDL_RenderPresent(renderer);
 
-	SDL_RenderPresent(renderer);
+		SDL_Delay(2000);
 
-	// Pausa körningen i 3000 millisekunder, t.ex.
-	SDL_Delay(5000);	
+		//Ritar skärmen blå
+		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+
+		SDL_RenderClear(renderer);
+
+		SDL_RenderPresent(renderer);
+
+		SDL_Delay(2000);
+
+		printf("Round: %d\n", active);
+		active++;
+	}
 
 	// Stängar och "förstör" fönstret
 	SDL_DestroyWindow(testWindow);
