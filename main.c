@@ -37,11 +37,30 @@ int main(int argc, char* argv[]) {
 
 	// Fönstret är nu öppet: kan länga in programloop här
 
-	// Uppdaterar skärmen med ? 
+	/* Hittils så va allt ritat "Behind the scenes".
+	   Detta kommer vissa det nya röda inhållet i fönstret. */
+	SDL_RenderPresent(renderer);
+
+	SDL_Delay(5000);
+
+	//Ritar skärmen grön
+	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+
+	SDL_RenderClear(renderer);
+
+	SDL_RenderPresent(renderer);
+
+	SDL_Delay(5000);
+
+	//Ritar skärmen blå
+	SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+
+	SDL_RenderClear(renderer);
+
 	SDL_RenderPresent(renderer);
 
 	// Pausa körningen i 3000 millisekunder, t.ex.
-	SDL_Delay(3000);	
+	SDL_Delay(5000);	
 
 	// Stängar och "förstör" fönstret
 	SDL_DestroyWindow(testWindow);
