@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <SDL.h>
+#include "functions.h"
 
 int main(int argc, char* argv[]) {
 
@@ -29,40 +28,19 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	int active = 0;
+	int active = 1;
 
 	// Programloop
-
-	while (active <= 5) {
-		// Ritar skärmen röd
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-
-		SDL_RenderClear(renderer);
-
-		SDL_RenderPresent(renderer);
-
-		SDL_Delay(2000);
-
-		// Ritar skärmen grön
-		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-
-		SDL_RenderClear(renderer);
-
-		SDL_RenderPresent(renderer);
-
-		SDL_Delay(2000);
-
-		//Ritar skärmen blå
-		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
-
-		SDL_RenderClear(renderer);
-
-		SDL_RenderPresent(renderer);
-
-		SDL_Delay(2000);
-
-		printf("Round: %d\n", active);
-		active++;
+	while (active)
+	{
+		//Fånga nästa händelse
+		SDL_Event event;
+		if (SDL_PollEvent(&event)) {
+			if (event.type == SDL_QUIT) {
+				break;
+			}
+		}
+		renderRandomColours(renderer);
 	}
 
 	// Stängar och "förstör" fönstret
