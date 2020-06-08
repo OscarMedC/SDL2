@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
 				break;
 			}
 		}
-		renderRandomColours(renderer);
+		renderChosenColour(renderer);
 	}
 
 	// Stängar och "förstör" fönstret

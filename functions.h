@@ -6,6 +6,7 @@
 #include <SDL.h>
 
 void renderRandomColours(SDL_Renderer* renderer);
+void renderChosenColour(SDL_Renderer* renderer);
 
 
 #endif
