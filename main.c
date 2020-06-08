@@ -39,8 +39,14 @@ int main(int argc, char* argv[]) {
 			if (event.type == SDL_QUIT) {
 				break;
 			}
+			else if (event.type == SDL_KEYDOWN) {
+				switch (event.key.keysym.sym) {
+					case SDLK_SPACE:
+						renderBlueColour(renderer);
+						break;
+				}
+			}
 		}
-		renderChosenColour(renderer);
 	}
 
 	// Stängar och "förstör" fönstret
