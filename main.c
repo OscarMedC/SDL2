@@ -40,10 +40,17 @@ int main(int argc, char* argv[]) {
 				break;
 			}
 			else if (event.type == SDL_KEYDOWN) {
+				//Välj färg beroende på vilket knapp du trycker
 				switch (event.key.keysym.sym) {
-					case SDLK_SPACE:
-						renderBlueColour(renderer);
-						break;
+				case SDLK_UP:
+					renderRedColour(renderer);
+					break;
+				case SDLK_DOWN:
+					renderGreenColour(renderer);
+					break;
+				case SDLK_SPACE:
+					renderBlueColour(renderer);
+					break;
 				}
 			}
 		}
