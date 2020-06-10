@@ -6,6 +6,9 @@ int main(int argc, char* argv[]) {
 
 	SDL_Init(SDL_INIT_VIDEO);			// Initierar SDL2
 
+	Uint32 start = 0;					// starttid för timer
+	int running = 1;					// Timerns start/stopp flagg
+
 	Uint32 flags = SDL_WINDOW_OPENGL | SDL_WINDOW_MAXIMIZED;
 
 	testWindow = SDL_CreateWindow(
@@ -29,6 +32,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	int active = 1;
+	Uint32 startTime = 0;
 
 	// Programloop
 	while (active)
@@ -40,16 +44,11 @@ int main(int argc, char* argv[]) {
 				break;
 			}
 			else if (event.type == SDL_KEYDOWN) {
-				//Välj färg beroende på vilket knapp du trycker
+				// Registrerar och skriver ut tiden sedan programmet startade i millisekunder
 				switch (event.key.keysym.sym) {
-				case SDLK_UP:
-					renderRedColour(renderer);
-					break;
-				case SDLK_DOWN:
-					renderGreenColour(renderer);
-					break;
 				case SDLK_SPACE:
-					renderBlueColour(renderer);
+					startTime = SDL_GetTicks();
+					printf("Time since start %d sec\n", startTime / 1000);
 					break;
 				}
 			}
