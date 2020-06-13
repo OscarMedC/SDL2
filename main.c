@@ -44,11 +44,16 @@ int main(int argc, char* argv[]) {
 				break;
 			}
 			else if (event.type == SDL_KEYDOWN) {
-				// Registrerar och skriver ut tiden sedan programmet startade i millisekunder
 				switch (event.key.keysym.sym) {
+				// Registrerar och skriver ut tiden sedan programmet startade i millisekunder, och den nya tiden om timern "startades" om
 				case SDLK_SPACE:
+					// Den nuvarande tiden - tiden när timer "startades" om e.g. 8000 - 7800 = 200 millisekunder eller 8000 - 0 = 8000 millisekunder
+					printf("Time since start %d\nPress Enter to restart timer\n", SDL_GetTicks() - startTime); 
+					break;
+				// Registrerar vilken tid sen programmets start som klockan ska "startas" om på
+				case SDLK_RETURN:
 					startTime = SDL_GetTicks();
-					printf("Time since start %d sec\n", startTime / 1000);
+					printf("Timer restarted!\n");
 					break;
 				}
 			}
