@@ -30,11 +30,13 @@ int main(int argc, char* argv[]) {
 	SDL_Surface* screenSurface = NULL;
 	// Bilden vi vill ladda och vissa på skärme
 	SDL_Surface* helloWorld = NULL;
+	SDL_Surface* helloTworld = NULL;
 
 	// Vi vill visa bilden inuti fönstret och för att kunna göra det måste vi få bilden inuti fönstret. SDL_GetWindowSurface hämtar ytan som finns i fönstret.
 	screenSurface = SDL_GetWindowSurface(testWindow);
 	// Laddar bilden som vi vill visa med SDL_LoadBMP, funktionen tar in en address till en .BMP fil
 	helloWorld = SDL_LoadBMP("Assets/helloworld.bmp");
+	helloTworld = SDL_LoadBMP("Assets/hw.bmp");
 
 	// Programloop
 	while (active)
@@ -60,6 +62,8 @@ int main(int argc, char* argv[]) {
 					SDL_UpdateWindowSurface(testWindow);
 					break;
 				case SDLK_RETURN:
+					SDL_BlitSurface(helloTworld, NULL, screenSurface, NULL);
+					SDL_UpdateWindowSurface(testWindow);
 					break;
 				}
 			}
