@@ -26,10 +26,14 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
+	// Ytan som fönstret innehåller
 	SDL_Surface* screenSurface = NULL;
+	// Bilden vi vill ladda och vissa på skärme
 	SDL_Surface* helloWorld = NULL;
 
+	// Vi vill visa bilden inuti fönstret och för att kunna göra det måste vi få bilden inuti fönstret. SDL_GetWindowSurface hämtar ytan som finns i fönstret.
 	screenSurface = SDL_GetWindowSurface(testWindow);
+	// Laddar bilden som vi vill visa med SDL_LoadBMP, funktionen tar in en address till en .BMP fil
 	helloWorld = SDL_LoadBMP("Assets/helloworld.bmp");
 
 	// Programloop
@@ -44,7 +48,15 @@ int main(int argc, char* argv[]) {
 			else if (event.type == SDL_KEYDOWN) {
 				switch (event.key.keysym.sym) {
 				case SDLK_SPACE:
-					SDL_BlitSurface(helloWorld, NULL, screenSurface, NULL);
+					// "Blitting" tar en käll-yta och trycker en kopia på mål-ytan, första argumentet i SDL_BlitSurface är käll-ytan och det tredje är mål-ytan.
+					SDL_BlitSurface(helloWorld, NULL, screenSurface, NULL); 
+					/*Uppdaterar skärmen. När du ritar till skärmen så ritar du oftast inte till den skärm du "ser".
+					De flesta renderingssystem som finns är "double-buffered". Dessa två buffrarna är front och back.
+					När man anropar ritningssanrop som SDÖ_BlitSurface, så ritar man ofta still back-buffern. Det du ser på skärmen kallas för front-buffern.
+					Hade vi bara haft en front-buffer så hade vi sett bilden samtidigt som saker ritas till den, vilket betyder att vi hade kollat på ofärdiga bilder.
+					Så det vi gör är att vi ritar allt till en back-buffer och sen när vi är klara så byter vi med front-buffer så att vi kan se den färdiga bilden.
+					
+					Detta betyder också att man inte anropar SDL_UpdateWindowSruface efter varje blit, bara efter alla blits för den nuvarande skärmen är klara.*/
 					SDL_UpdateWindowSurface(testWindow);
 					break;
 				case SDLK_RETURN:
@@ -54,7 +66,7 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	// Stängar och "förstör" fönstret
+	// Stänger och "förstör" fönstret
 	SDL_DestroyWindow(testWindow);
 
 	// Städar upp
